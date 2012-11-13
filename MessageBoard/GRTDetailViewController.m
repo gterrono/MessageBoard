@@ -40,8 +40,10 @@
 
     if (self.detailItem) {
         NSDictionary *message = (NSDictionary*)self.detailItem;
+        NSArray* datePieces = [[[message objectForKey:@"created_at"] substringToIndex:10] componentsSeparatedByString:@"-"];
+        NSString* date = [NSString stringWithFormat:@"%@/%@/%@", datePieces[1], datePieces[2], datePieces[0]];
         [_titleLabel setText: [message objectForKey:@"title"]];
-        [_dateLabel setText: [message objectForKey:@"created_at"]];
+        [_dateLabel setText: date];
         [_messageLabel setText: [message objectForKey:@"body"]];
         
     }
