@@ -10,6 +10,9 @@
 
 @interface GRTDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UITextView *messageLabel;
 - (void)configureView;
 @end
 
@@ -36,7 +39,11 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        NSDictionary *message = (NSDictionary*)self.detailItem;
+        [_titleLabel setText: [message objectForKey:@"title"]];
+        [_dateLabel setText: [message objectForKey:@"created_at"]];
+        [_messageLabel setText: [message objectForKey:@"body"]];
+        
     }
 }
 
