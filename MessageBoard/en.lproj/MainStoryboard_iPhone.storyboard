@@ -163,25 +163,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iz-Lr-gH3">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6LD-OM-WsY">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6LD-OM-WsY" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="C41-jZ-iBZ"/>
+                            <constraint firstItem="6LD-OM-WsY" firstAttribute="top" secondItem="DgE-ze-Fo3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GnG-LX-2Mz"/>
                             <constraint firstItem="DgE-ze-Fo3" firstAttribute="top" secondItem="lbO-FT-PAj" secondAttribute="top" constant="20" symbolic="YES" type="default" id="OJr-lc-XXe"/>
-                            <constraint firstItem="LOe-DA-7Ag" firstAttribute="top" secondItem="c7a-fz-sS5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TtL-ye-hDf"/>
                             <constraint firstItem="LOe-DA-7Ag" firstAttribute="leading" secondItem="lbO-FT-PAj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="a36-BM-1bl"/>
-                            <constraint firstAttribute="bottom" secondItem="8iz-Lr-gH3" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="b1J-Tf-YIS"/>
-                            <constraint firstItem="8iz-Lr-gH3" firstAttribute="top" secondItem="LOe-DA-7Ag" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gwv-Wo-nVE"/>
-                            <constraint firstAttribute="trailing" secondItem="8iz-Lr-gH3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ipc-Pf-Poh"/>
+                            <constraint firstItem="6LD-OM-WsY" firstAttribute="leading" secondItem="LOe-DA-7Ag" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aOM-D9-4BH"/>
                             <constraint firstItem="c7a-fz-sS5" firstAttribute="top" secondItem="lbO-FT-PAj" secondAttribute="top" constant="20" symbolic="YES" type="default" id="k8o-hX-svp"/>
                             <constraint firstAttribute="trailing" secondItem="DgE-ze-Fo3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nLA-ng-TfW"/>
                             <constraint firstItem="c7a-fz-sS5" firstAttribute="leading" secondItem="lbO-FT-PAj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oiX-Kt-mEV"/>
-                            <constraint firstItem="8iz-Lr-gH3" firstAttribute="leading" secondItem="lbO-FT-PAj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="otD-wn-1fA"/>
                             <constraint firstItem="DgE-ze-Fo3" firstAttribute="leading" secondItem="LOe-DA-7Ag" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="q6F-92-YGG"/>
+                            <constraint firstItem="6LD-OM-WsY" firstAttribute="top" secondItem="LOe-DA-7Ag" secondAttribute="top" type="default" id="uw2-Sa-798"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Message" id="x4V-aI-KdG">
@@ -197,7 +195,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="messageBox" destination="8iz-Lr-gH3" id="2Eh-4j-fXs"/>
+                        <outlet property="messageField" destination="6LD-OM-WsY" id="Czt-br-TtY"/>
                         <outlet property="titleField" destination="DgE-ze-Fo3" id="kqz-YF-BOi"/>
                     </connections>
                 </viewController>
@@ -230,7 +228,7 @@
             <relationships>
                 <relationship kind="action" name="cancelClicked:"/>
                 <relationship kind="action" name="doneClicked:"/>
-                <relationship kind="outlet" name="messageBox" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="messageField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
             </relationships>
         </class>

@@ -10,7 +10,7 @@
 
 @interface GRTAddViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
-@property (weak, nonatomic) IBOutlet UITextView *messageBox;
+@property (weak, nonatomic) IBOutlet UITextField *messageField;
 - (IBAction)doneClicked:(id)sender;
 - (IBAction)cancelClicked:(id)sender;
 
@@ -40,6 +40,16 @@
 }
 
 - (IBAction)doneClicked:(id)sender {
+    NSString *url = @"http://cis195-messages.herokuapp.com/messages";
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    [request setHTTPMethod:@"POST"];
+    
+    NSString *data = [NSString stringWithFormat:@"message[title]=%@&message[body]=%@", _titleField.text, _messageField.text];
+    [request setHTTPBody:[data dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

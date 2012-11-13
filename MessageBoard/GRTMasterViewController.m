@@ -14,6 +14,7 @@
     NSMutableArray *_objects;
     NSMutableData *_data;
 }
+- (void)getData;
 @end
 
 @implementation GRTMasterViewController
@@ -27,16 +28,24 @@
     [super awakeFromNib];
 }
 
+- (void)getData {
+    NSString *url = @"http://cis195-messages.herokuapp.com/messages";
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.detailViewController = (GRTDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    NSString *url = @"http://cis195-messages.herokuapp.com/messages";
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
+    [self getData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self getData];
 }
 
 - (void)didReceiveMemoryWarning
