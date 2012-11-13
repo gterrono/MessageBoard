@@ -57,7 +57,13 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="36"/>
+                    <navigationItem key="navigationItem" title="Master" id="36">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="W4i-eA-96n">
+                            <connections>
+                                <segue destination="EcW-nc-52e" kind="modal" id="tqw-d8-CfB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
@@ -132,8 +138,102 @@
             </objects>
             <point key="canvasLocation" x="902" y="64"/>
         </scene>
+        <!--Add View Controller - Add a Message-->
+        <scene sceneID="1fS-4y-gb5">
+            <objects>
+                <viewController id="hzf-sw-MMY" customClass="GRTAddViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lbO-FT-PAj">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7a-fz-sS5">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOe-DA-7Ag">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="Tpi-YL-FXF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DgE-ze-Fo3">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iz-Lr-gH3">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DgE-ze-Fo3" firstAttribute="top" secondItem="lbO-FT-PAj" secondAttribute="top" constant="20" symbolic="YES" type="default" id="OJr-lc-XXe"/>
+                            <constraint firstItem="LOe-DA-7Ag" firstAttribute="top" secondItem="c7a-fz-sS5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TtL-ye-hDf"/>
+                            <constraint firstItem="LOe-DA-7Ag" firstAttribute="leading" secondItem="lbO-FT-PAj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="a36-BM-1bl"/>
+                            <constraint firstAttribute="bottom" secondItem="8iz-Lr-gH3" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="b1J-Tf-YIS"/>
+                            <constraint firstItem="8iz-Lr-gH3" firstAttribute="top" secondItem="LOe-DA-7Ag" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gwv-Wo-nVE"/>
+                            <constraint firstAttribute="trailing" secondItem="8iz-Lr-gH3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ipc-Pf-Poh"/>
+                            <constraint firstItem="c7a-fz-sS5" firstAttribute="top" secondItem="lbO-FT-PAj" secondAttribute="top" constant="20" symbolic="YES" type="default" id="k8o-hX-svp"/>
+                            <constraint firstAttribute="trailing" secondItem="DgE-ze-Fo3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nLA-ng-TfW"/>
+                            <constraint firstItem="c7a-fz-sS5" firstAttribute="leading" secondItem="lbO-FT-PAj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oiX-Kt-mEV"/>
+                            <constraint firstItem="8iz-Lr-gH3" firstAttribute="leading" secondItem="lbO-FT-PAj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="otD-wn-1fA"/>
+                            <constraint firstItem="DgE-ze-Fo3" firstAttribute="leading" secondItem="LOe-DA-7Ag" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="q6F-92-YGG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a Message" id="x4V-aI-KdG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tsX-BL-x4a">
+                            <connections>
+                                <action selector="cancelClicked:" destination="hzf-sw-MMY" id="KYC-aT-6Q5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="HQK-tf-tjA">
+                            <connections>
+                                <action selector="doneClicked:" destination="hzf-sw-MMY" id="9Ev-Wr-DBz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageBox" destination="8iz-Lr-gH3" id="2Eh-4j-fXs"/>
+                        <outlet property="titleField" destination="DgE-ze-Fo3" id="kqz-YF-BOi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ghj-3o-L7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="-584"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tMp-TW-TZX">
+            <objects>
+                <navigationController id="EcW-nc-52e" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dnV-Th-uKn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hzf-sw-MMY" kind="relationship" relationship="rootViewController" id="SsV-oa-PE9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="faF-2W-cAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="459" y="-584"/>
+        </scene>
     </scenes>
     <classes>
+        <class className="GRTAddViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GRTAddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelClicked:"/>
+                <relationship kind="action" name="doneClicked:"/>
+                <relationship kind="outlet" name="messageBox" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
         <class className="GRTDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GRTDetailViewController.h"/>
             <relationships>
